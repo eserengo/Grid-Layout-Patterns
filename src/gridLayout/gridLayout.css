@@ -1,0 +1,208 @@
+:root {
+  font-size: 18px;
+  --fuchsia: #b8336a;
+  --indigo:#615d8f;
+  --turquoise: #7d8cc4;
+  --cyan: #a0d2db;
+  --magenta: #c490d1;
+  --aquamarine: #0be7be;
+  --yellow: #e1e100;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  font-family: Helvetica;
+  text-align: center;
+  padding: auto;
+  transition: ease-out 0.7s;
+}
+
+body {
+  min-width: 18rem;
+  min-height: auto;
+}
+
+.inactive {
+  display: none !important;
+}
+
+header {
+  font-size: 1rem;
+  color: var(--indigo);
+  margin: 1rem;
+  user-select: none;
+}
+
+.fa-times {
+  position: fixed;
+  right: 0.4rem;
+  top: 0.1rem;
+  font-size: 1.5rem;
+}
+
+.fa-times:hover {
+  cursor: pointer;
+}
+
+.grid-container {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.1rem;
+  grid-auto-rows: 0;
+}
+
+.grid-element {
+  color: var(--white);
+  font-size: 3rem;
+}
+
+.one {
+  background-color: var(--fuchsia);
+}
+
+.two {
+  background-color: var(--indigo);
+}
+
+.three {
+  background-color: var(--turquoise);
+}
+
+.four {
+  background-color: var(--cyan);
+}
+
+.five {
+  background-color: var(--magenta);
+}
+
+.six {
+  background-color: var(--aquamarine);
+}
+
+footer > button {
+  font-size: 1rem;
+  border: 1px solid var(--black);
+  border-radius: 0.3rem;
+  width: 8rem;
+  height: 4rem;
+  margin: 0.25rem;
+  color: var(--indigo);
+  opacity: 0.9;
+}
+
+footer > button:hover {
+  cursor: pointer;
+  color: var(--black);
+  box-shadow: 0.1rem 0.1rem 0.75rem var(--black);
+  opacity: 1;
+  transform: perspective(5rem) translateZ(0.25rem);
+}
+
+#columnDrop {
+  background-image: linear-gradient(to bottom right, var(--white), var(--aquamarine));
+}
+
+#mostlyFluid {
+  background-image: linear-gradient(to bottom right, var(--white), var(--fuchsia));
+}
+
+#loShifter {
+  background-image: linear-gradient(to bottom right, var(--white), var(--magenta));
+}
+
+#holyGrial {
+  background-image: linear-gradient(to bottom right, var(--white), var(--turquoise));
+}
+
+.popup {
+  background-image: linear-gradient(to bottom right, var(--white), var(--yellow), var(--yellow));
+  font-size: 1rem;
+  width: 9rem;
+  height: 3rem;
+  padding-top: 0.1rem;
+  transform: perspective(2rem) rotateX(2deg) rotateY(2deg);
+  border: 0.1rem solid var(--black);
+  border-radius: 0.25rem;
+  animation: popin 0.4s, shake 0.8s 0.4s infinite;
+}
+
+.popup:before {
+    content:"";
+    position: absolute;
+    top: 107%;
+    left: 40%;
+    border-width: 1rem;
+    border-color: transparent var(--yellow) transparent transparent;
+    border-style: solid;
+    transform: rotate(-90deg);
+}
+
+@keyframes shake {
+  0% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(2deg); }
+  10% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(-2deg); }
+  30% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(2deg); }
+  50% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(-2deg); }
+  70% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(2deg); }
+  90% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(-2deg); }
+  100% { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) rotate(0); }
+}
+
+@keyframes popin {
+  from { transform: perspective(2rem) rotateX(2deg) rotateY(2deg) scale(0); }
+  to {transform: perspective(2rem) rotateX(2deg) rotateY(2deg) scale(1); }
+}
+
+@media screen and (width>=480px) and (width<1024px) {
+  header {
+    font-size: 1.5rem;
+  }
+  footer > button {
+  font-size: 1.5rem;
+  width: 10rem;
+  height: 5rem;
+  margin: 0.5rem;
+  }
+  .popup {
+  font-size: 1.5rem;
+  width: 12rem;
+  height: 4rem;
+  }
+}
+
+@media screen and (width>=1024px) {
+  header {
+    font-size: 2rem;
+  }
+  footer > button {
+  font-size: 2rem;
+  width: 12rem;
+  height: 6rem;
+  margin: 0.75rem;
+  }
+  .popup {
+  font-size: 2rem;
+  width: 15rem;
+  height: 5rem;
+  }
+}
+
+.device {
+  position: fixed;
+  top: 3%;
+  left: 5%;
+  padding-top: 0.9rem;
+}
+
+.foot {
+  position: fixed;
+  top: 3%;
+  right: 2%;
+}
+
+.popup:not(:first-of-type) {
+  display: none;
+}
